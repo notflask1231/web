@@ -37,12 +37,6 @@ const json = await response.json();
 </div>
 
 <style>
-@media(max-width: 1000px) {
-  .repos {
-    flex-direction: column;
-  }
-}
-
 .repos {
   display: flex;
   align-items: center;
@@ -69,4 +63,9 @@ const json = await response.json();
   gap: 1rem;
 }
 
+@media(max-width: 1000px) {
+  .rendered {
+    flex-direction: column;
+  }
+}
 </style>
