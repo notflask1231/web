@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Information from '../components/Information.astro';
+import Repos from '../components/Repos.astro';
+---
+
+<Layout title="Vibing">
+  <main class="main">
+    <section class="section"><Information /></section>
+    <section class="section"><Repos /></section>
+  </main>
+</Layout>
+
+<style>
+.main {
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section {
+  width: 100%;
+  max-width: 100%;
+  padding: 4rem 0;
+  background-color: #1e2021;
+  background-size:auto;
+} 
+
+</style>

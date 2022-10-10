@@ -1,0 +1,72 @@
+---
+import Repository from "./Repository.astro";
+import { USERNAME } from "../config";
+
+const response = await fetch(`https://gh-pinned-repos.egoist.dev/?username=${USERNAME}`);
+const json = await response.json();
+---
+
+<h2 class="repos-title">Pinned repositories</h2>
+<div class="repos">
+  <div class="wrapper">
+  <div class="rendered">
+        {json.slice(0, 2).map( (repository: any) => {
+          const { repo, link, description, language, languageColor, stars } = repository;
+          return (
+            <Repository repo={repo} link={link} description = {description} stars={stars} language={language} color={languageColor}/>
+          )
+        })}
+  </div>
+  <div class="rendered">
+        {json.slice(2, 4).map( (repository: any) => {
+          const { repo, stars, link, description, language, languageColor } = repository;
+          return (
+            <Repository repo={repo} link={link} description = {description} stars={stars} language={language} color={languageColor}/>
+          )
+        })}
+  </div>
+  <div class="rendered">
+        {json.slice(4, 6).map( (repository: any) => {
+          const { repo, stars, link, description, language, languageColor } = repository;
+          return (
+            <Repository repo={repo} link={link} description = {description} stars={stars} language={language} color={languageColor}/>
+          )
+        })}
+  </div>
+  </div>
+</div>
+
+<style>
+@media(max-width: 1000px) {
+  .repos {
+    flex-direction: column;
+  }
+}
+
+.repos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.repos-title {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.rendered {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+</style>

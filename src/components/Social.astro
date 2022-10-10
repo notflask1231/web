@@ -1,0 +1,50 @@
+---
+const { icon, name, link } = Astro.props;
+---
+
+<a class="social tooltip" href={link}>
+  <div class="tooltip-text">{name}</div>
+  <img class="social-icon" src={icon} />
+</a>
+
+<style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 60px;
+  word-wrap:break-word;
+  font-size: 12px;
+  background-color: #333;
+  top: 100%;
+  left: 50%;
+  margin-left: -30px;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 3px;
+
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+}
+
+.tooltip:hover {
+  visibility: visible;
+}
+
+.social {
+  text-decoration: none;
+}
+
+.social-icon {
+  fill: none;
+  stroke: currentColor; 
+}
+</style>

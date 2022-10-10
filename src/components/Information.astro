@@ -1,0 +1,74 @@
+---
+import Avatar from "./Avatar.astro";
+import Social from "./Social.astro";
+import { AVATAR_URL, DESCRIPTION, FIRST_NAME, SECOND_NAME, USERNAME } from "../config"
+---
+
+<div class="information">
+  <div>
+    <h1 class="heading">{FIRST_NAME} {SECOND_NAME}</h1>
+    <div class="description">
+      {DESCRIPTION.map((line: any) => {
+        return (
+          <div>
+            {line}
+            <br />
+            <br />
+          </div>
+        )
+      })}
+    </div>
+
+    <div class="socials">
+      <Social icon="/twitter.svg" name="Twitter" link={`https://twitter.com/${USERNAME}`}/>
+      <Social icon="/github.svg" name="GitHub" link={`https://github.com/${USERNAME}`}/>
+    </div>
+  </div>
+  <Avatar url={AVATAR_URL} />
+</div>
+
+<style>
+.information {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  gap: 8rem;
+}
+
+.heading {
+  font-size: 36px;
+}
+
+.description {
+  font-size: 24px;
+  font-weight: 500;
+  width: 100%;
+}
+
+.socials {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+@media(max-width: 1000px) {
+  .information {
+    gap: 2rem;
+    text-align: center;
+    flex-direction: column-reverse;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+}
+
+@media(max-width: 500px) {
+  .information {
+    font-size: 12px;
+  }
+}
+</style>

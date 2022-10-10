@@ -1,0 +1,14 @@
+--- 
+const { url } = Astro.props;
+---
+
+<div>
+  <img class="avatar" src={url} />
+</div>
+
+<style>
+.avatar {
+  width: 350px;
+  border-radius: 16px;
+}
+</style>

@@ -1,0 +1,94 @@
+---
+const { repo, link, description, language, color, stars } = Astro.props;
+---
+
+<a class="repository" href={link}>
+  <div class="repository-content">
+  <div class="repository-name">
+    {repo}
+  </div>
+  <div class="repository-desc">
+    {description}
+  </div>
+  <div class="repository-lang">
+      <div class="repository-lang-wrapper">
+        <div class="repository-lang-inner">
+          <div class="repository-color" style={`background-color: ${color};`}></div>
+          {language}
+        </div>
+        <div class="repository-stars">
+          <img src="/star.svg" />
+          {stars}
+        </div>
+      </div>
+  </div>
+  </div>
+</a>
+
+<style>
+.repository {
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+  flex-direction: column;
+  font-family: 'Fira Code', monospace;
+  font-weight: 500;
+  border-radius: 24px;
+  background-color: #181a1b;
+  transition: filter .2s linear;
+}
+
+.repository:hover {
+  filter: brightness(75%);
+}
+
+
+.repository-content {
+  position: relative;
+  width: 24rem;
+  height: 8rem;
+  padding: 1rem;
+}
+
+.repository-name {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.repository-desc {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.repository-lang {
+  position: absolute;
+  bottom: 1rem;
+}
+
+.repository-lang-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.repository-lang-inner {
+  font-size: 14px;
+  gap: 0.3rem;
+  display: flex;
+}
+
+.repository-color {
+    width: 14px;
+    height: 14px;
+    margin-right: 3px;
+    border-radius: 20px;
+}
+
+@media(max-width: 650px) {
+  .repository-content {
+    width: 18rem;
+  }
+}
+</style>
