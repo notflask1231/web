@@ -6,5 +6,5 @@ export const SECOND_NAME = "Flask";
 export const DESCRIPTION = [
   "Hi there 👋🏻 I'm Daniel, I'm 14 years old.",
   "Self-taught backend developer",
-  "Experienced with Java and Rust programming languages.",
+  "Experienced with C++ and Rust programming languages.",
 ];
